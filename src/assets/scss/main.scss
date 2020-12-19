@@ -1,0 +1,50 @@
+@import "reset";
+@import "vars";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100:300,400,500,600,700,800&display=swap&subset=cyrillic');
+
+html {
+  overflow-y: auto
+}
+
+.v-application {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  .toasted-container.top-right {
+    right: 10px;
+    top: 40px;
+    min-width: 300px;
+    max-width: 500px;
+  }
+  
+  .toasted .primary, .toasted.toasted-primary {
+    box-shadow: none;
+  }
+}
+
+.v-application p {
+  margin-bottom: 0;
+}
+
+.no-transition .v-stepper__content {
+  transition: none !important;
+}
+
+.appearance-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+  h2 {
+    margin-right: 20px;
+  }
+}

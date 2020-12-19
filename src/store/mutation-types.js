@@ -1,0 +1,4 @@
+export const CHANGE_ERROR = 'CHANGE_ERROR'
+export const SET_TRANSLATIONS = 'SET_TRANSLATIONS'
+export const SET_LIST = 'SET_LIST'
+export const SET_LIST_LOADING = 'SET_LIST_LOADING'
