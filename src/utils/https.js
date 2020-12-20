@@ -44,7 +44,7 @@ $http.interceptors.response.use((response) => {
     }
     default: {
       store.commit('system/CHANGE_ERROR', {
-        message: JSON.stringify(error.response)
+        message: JSON.stringify(error.response.data)
       })
     }
   }

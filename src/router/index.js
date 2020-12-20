@@ -6,14 +6,15 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/:lang(.{2})?/',
     name: 'Home',
-    component: Home
+    component: Home,
+    redirect: '/:lang?/dashboard'
   },
   {
-    path: '/dashboard',
+    path: '/:lang?/dashboard',
     name: 'Dashboard',
-    component: () => import('@/modules/dashboard/index.vue')
+    component: () => import('@/modules/packages/index.vue')
   }
 ]
 

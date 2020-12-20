@@ -1,17 +1,7 @@
 import { mapGetters } from 'vuex'
-import TheMainSidebar from '@/components/sidebar/index.vue'
 
 export default {
   name: 'Main',
-  data () {
-    return {
-      drawer: true,
-      miniVariant: false
-    }
-  },
-  components: {
-    TheMainSidebar
-  },
   watch: {
     error: {
       handler (item) {
@@ -24,7 +14,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      error: 'system/error'
+      error: 'system/error',
+      isLoading: 'packages/isListLoading'
     }),
     ...mapGetters([
       'languages',

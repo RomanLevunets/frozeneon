@@ -1,4 +1,4 @@
 <template>
-  <p>dashboard</p>
+  <p></p>
 </template>
 <script src="./index.js"></script>

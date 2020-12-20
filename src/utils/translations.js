@@ -5,7 +5,7 @@ import router from '@/router'
 
 const proxy = {
   getTranslation: async () => {
-    return await store.dispatch('setting/GET_TRANSLATIONS')
+    // return await store.dispatch('setting/GET_TRANSLATIONS')
   }
 }
 
