@@ -16,10 +16,10 @@
       </v-col>
       <v-col cols="4" sm="2" class="pl-0">
         <v-btn block
+               class="pl-1 pr-1"
                type="submit"
                x-large
                tile
-               class="fill-height"
                outlined>
           Search
         </v-btn>

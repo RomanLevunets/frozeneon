@@ -28,7 +28,7 @@
         <v-spacer></v-spacer>
         <v-btn @click.prevent="closeDialog()"
                color="silver"
-               class="mr-1"
+               class="mr-1 hide-sm"
         >
           close
         </v-btn>

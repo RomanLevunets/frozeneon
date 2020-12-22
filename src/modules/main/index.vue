@@ -41,5 +41,4 @@
     </v-footer>
   </v-app>
 </template>
-<style src="./index.scss" lang="scss"></style>
 <script src="./index.js"></script>
