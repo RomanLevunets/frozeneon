@@ -43,6 +43,8 @@ export default {
       isListLoading: 'packages/isListLoading',
       isLoading: 'packages/isLoading',
       currentItem: 'packages/currentItem',
+      packageMetadata: 'packages/packageMetadata',
+      packageGithub: 'packages/packageGithub',
       queryParams: 'packages/queryParams'
     })
   },

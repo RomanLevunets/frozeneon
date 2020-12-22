@@ -30,6 +30,8 @@ const getters = {
   isListLoading: state => state.isListLoading,
   queryParams: state => state.queryParams,
   currentItem: state => state.currentItem,
+  packageMetadata: state => state.currentItem.collected.metadata,
+  packageGithub: state => state.currentItem.collected.github,
   isLoading: state => state.isLoading
 }
 
@@ -37,8 +39,8 @@ const actions = {
   [GET_LIST]: async ({ state, commit }) => {
     commit(SET_LIST_LOADING, true)
     try {
-      const response = await $http.get(`/-/v1/search?text=${state.queryParams.text}&size=${state.queryParams.size}&from=${state.queryParams.from}`)
-      commit(SET_LIST, response.data.objects)
+      const response = await $http.get(`search?q=${state.queryParams.text}&size=${state.queryParams.size}&from=${state.queryParams.from}`)
+      commit(SET_LIST, response.data.results)
       commit(SET_LIST_LENGTH, response.data.total)
       // eslint-disable-next-line no-useless-catch
     } catch (e) {
@@ -48,9 +50,10 @@ const actions = {
     }
   },
   [GET_ITEM]: async ({ commit }, payload) => {
+    const encodedName = encodeURIComponent(payload.packageName)
     commit(CHANGE_LOADING, true)
     try {
-      const response = await $http.get(`/${payload.packageName}`)
+      const response = await $http.get(`package/${encodedName}`)
       commit(SET_ITEM, response.data)
       // eslint-disable-next-line no-useless-catch
     } catch (e) {

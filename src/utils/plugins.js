@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import Toasted from 'vue-toasted'
 // use
-Vue.use(Toasted)
+Vue.use(Toasted, {
+  duration: 4000
+})
 Vue.use(Vuetify)
 
 export const vuetify = new Vuetify({

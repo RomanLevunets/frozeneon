@@ -62,23 +62,23 @@
       <the-intro-view></the-intro-view>
     </v-col>
     <dialog-view :show="showDialogView"
-                 :title="currentItem ? currentItem.name: ''"
+                 :title="currentItem ? packageMetadata.name: ''"
                  :loading="isLoading"
                  v-if="showDialogView"
                  @close-dialog="showDialogView = false">
       <template #content>
         <div v-if="currentItem" class="pt-5">
-          <p v-show="!currentItem.readme" class="mb-4 text-h6">
-            <span>{{ currentItem.description }}</span><br>
+          <p v-show="!packageMetadata.readme" class="mb-4 text-h6">
+            <span>{{ packageMetadata.description }}</span><br>
             The more information this package ->
-            <a :href="currentItem.homepage" target="_blank" class="text-h5">
+            <a :href="packageGithub.homepage" target="_blank" class="text-h5">
               link
             </a>
           </p>
           <vue-markdown
             class="markdown"
             :breaks="false"
-            :source="currentItem.readme.replace(/↵/g, '')"></vue-markdown>
+            :source="packageMetadata.readme"></vue-markdown>
         </div>
       </template>
     </dialog-view>
