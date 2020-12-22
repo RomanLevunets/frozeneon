@@ -1,4 +1,4 @@
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'ThePackageListItem',
@@ -6,6 +6,11 @@ export default {
     item: {
       type: Object
     }
+  },
+  computed: {
+    ...mapGetters({
+      queryParams: 'packages/queryParams'
+    })
   },
   methods: {
     ...mapActions({
@@ -21,6 +26,13 @@ export default {
       })
       this.$vuetify.goTo(0)
       this.fetchList()
+      // replace url query
+      if (this.queryParams.text !== this.$route.query.q) {
+        this.$router.replace({
+          name: 'Home',
+          query: { q: this.queryParams.text }
+        })
+      }
     }
   }
 }

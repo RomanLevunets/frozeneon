@@ -8,14 +8,13 @@ const routes = [
   {
     path: '/:lang(.{2})?/',
     name: 'Home',
-    component: Home,
-    redirect: '/:lang?/dashboard'
-  },
-  {
-    path: '/:lang?/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/modules/packages/index.vue')
+    component: Home
   }
+  // {
+  //   path: '/:lang?/dashboard',
+  //   name: 'Dashboard',
+  //   component: () => import('@/modules/dashboard/index.vue')
+  // }
 ]
 
 const router = new VueRouter({

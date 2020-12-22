@@ -1,7 +1,6 @@
 // utils
 // eslint-disable-next-line import/no-duplicates
 import './utils/plugins'
-import './utils/translations'
 
 import Vue from 'vue'
 import App from './App.vue'
@@ -14,7 +13,7 @@ import { vuetify } from './utils/plugins'
 // vue configs
 Vue.config.productionTip = false
 
-const app = new Vue({
+new Vue({
   router,
   store,
   vuetify,
@@ -22,8 +21,4 @@ const app = new Vue({
   mounted () {
     document.dispatchEvent(new Event('render-event'))
   }
-})
-
-Vue.initI18nManager().then(() => {
-  app.$mount('#app')
-})
+}).$mount('#app')

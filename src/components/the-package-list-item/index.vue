@@ -30,7 +30,7 @@
       <v-btn
         text
         color="teal accent-4"
-        @click.prevent=""
+        @click.prevent="$emit('handle-button', item)"
       >
         Learn More
       </v-btn>

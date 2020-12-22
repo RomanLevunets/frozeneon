@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import Toasted from 'vue-toasted'
-
 // use
 Vue.use(Toasted)
 Vue.use(Vuetify)

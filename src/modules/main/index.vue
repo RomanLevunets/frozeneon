@@ -25,14 +25,17 @@
       </v-btn>
     </v-app-bar>
     <v-main class="mt-5 mr-4 ml-4">
-      <router-view></router-view>
+      <dashboard></dashboard>
     </v-main>
     <v-footer
       dark
       padless>
       <v-row>
         <v-col class="text-center">
-          {{ new Date().getFullYear() }} — <strong>Roman Levunets</strong>
+          <strong>Roman Levunets</strong>
+          <p>
+           this project <a href="https://github.com/RomanLevunets/frozeneon" target="_blank" style="color: #009688">repo</a>
+          </p>
         </v-col>
       </v-row>
     </v-footer>

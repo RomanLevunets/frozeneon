@@ -1,4 +1,5 @@
 import { $http } from '@/utils/https'
+
 import {
   CHANGE_LOADING,
   CHANGE_QUERY_PARAMS,
@@ -49,8 +50,8 @@ const actions = {
   [GET_ITEM]: async ({ commit }, payload) => {
     commit(CHANGE_LOADING, true)
     try {
-      const response = await $http.get(`/${payload.package}`)
-      commit(SET_ITEM, response.data.objects)
+      const response = await $http.get(`/${payload.packageName}`)
+      commit(SET_ITEM, response.data)
       // eslint-disable-next-line no-useless-catch
     } catch (e) {
       throw e
@@ -61,7 +62,10 @@ const actions = {
 }
 
 const mutations = {
-  [SET_LIST] (state, list) {
+  [SET_LIST] (state, list = []) {
+    if (!list.length) {
+      state.totalListLength = 0
+    }
     state.list = list
   },
   [SET_LIST_LOADING] (state, status) {

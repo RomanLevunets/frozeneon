@@ -1,4 +1,5 @@
 import { mapGetters } from 'vuex'
+import Dashboard from '@/modules/dashboard/index.vue'
 
 export default {
   name: 'Main',
@@ -6,11 +7,14 @@ export default {
     error: {
       handler (item) {
         if (item.show) {
-          this.$toasted.error(this.$t(item.message))
+          this.$toasted.error(item.message)
         }
       },
       deep: true
     }
+  },
+  components: {
+    Dashboard
   },
   computed: {
     ...mapGetters({

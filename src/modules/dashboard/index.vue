@@ -9,12 +9,13 @@
       <v-row>
         <v-col cols="12"
                sm="6"
-               v-show="!!queryParams.text"
+               v-show="!!queryParams.text && list.length > 0"
                style="display: flex; align-items: center;">
           <p class="text-left pl-3">
             <strong>{{ totalListLength }}</strong> packages found
           </p>
         </v-col>
+        <v-spacer></v-spacer>
         <v-col cols="12"
                sm="6"
                class="justify-end"
@@ -36,7 +37,10 @@
            md="4"
            v-for="(item, index) in list"
            :key="index">
-      <the-package-list-item :item="item"></the-package-list-item>
+      <the-package-list-item
+        :item="item"
+        @handle-button="showDialogDetail">
+      </the-package-list-item>
     </v-col>
     <v-col cols="12" class="justify-center v-responsive">
       <v-pagination
@@ -57,6 +61,27 @@
            v-show="!queryParams.text.length">
       <the-intro-view></the-intro-view>
     </v-col>
+    <dialog-view :show="showDialogView"
+                 :title="currentItem ? currentItem.name: ''"
+                 :loading="isLoading"
+                 v-if="showDialogView"
+                 @close-dialog="showDialogView = false">
+      <template #content>
+        <div v-if="currentItem" class="pt-5">
+          <p v-show="!currentItem.readme" class="mb-4 text-h6">
+            <span>{{ currentItem.description }}</span><br>
+            The more information this package ->
+            <a :href="currentItem.homepage" target="_blank" class="text-h5">
+              link
+            </a>
+          </p>
+          <vue-markdown
+            class="markdown"
+            :breaks="false"
+            :source="currentItem.readme.replace(/↵/g, '')"></vue-markdown>
+        </div>
+      </template>
+    </dialog-view>
   </v-row>
 </template>
 <script src="./index.js"></script>
