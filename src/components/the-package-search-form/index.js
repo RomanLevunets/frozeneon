@@ -22,7 +22,9 @@ export default {
   },
   created () {
     this.setDefaultQuery()
-    this.fetchList()
+    if (this.queryParams.text.length || this.searchInput.length) {
+      this.fetchList()
+    }
   },
   methods: {
     ...mapActions({
@@ -37,6 +39,10 @@ export default {
       this.changeQueryParams({
         key: 'text',
         value: this.searchInput || ''
+      })
+      this.changeQueryParams({
+        key: 'from',
+        value: 0
       })
 
       // check empty string
@@ -53,13 +59,7 @@ export default {
       if (this.searchInput === this.$route.query.q) {
         return false
       }
-
       this.updateQueryUrl()
-
-      this.changeQueryParams({
-        key: 'from',
-        value: 0
-      })
       this.fetchList()
     },
     setDefaultQuery () {

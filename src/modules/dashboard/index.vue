@@ -27,7 +27,7 @@
             next-icon="mdi-chevron-right"
             prev-icon="mdi-chevron-left"
             @input="handlePagination($event)"
-            :total-visible="7"
+            :total-visible="windowWith > 500 ? 7 : 5"
           ></v-pagination>
         </v-col>
       </v-row>
@@ -50,7 +50,7 @@
         next-icon="mdi-chevron-right"
         prev-icon="mdi-chevron-left"
         @input="handlePagination($event)"
-        :total-visible="7"
+        :total-visible="windowWith > 500 ? 7 : 5"
       ></v-pagination>
     </v-col>
     <v-col cols="12" v-show="queryParams.text.length > 2 && !isListLoading && !totalListLength">
@@ -70,9 +70,9 @@
         <div v-if="currentItem" class="pt-5">
           <p v-show="!packageMetadata.readme" class="mb-4 text-h6">
             <span>{{ packageMetadata.description }}</span><br>
-            The more information this package ->
-            <a :href="packageGithub.homepage" target="_blank" class="text-h5">
-              link
+            More information
+            <a :href="packageMetadata.links.homepage" target="_blank" class="text-h5">
+              here
             </a>
           </p>
           <vue-markdown

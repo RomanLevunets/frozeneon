@@ -20,11 +20,7 @@ export default {
     ...mapGetters({
       error: 'system/error',
       isLoading: 'packages/isListLoading'
-    }),
-    ...mapGetters([
-      'languages',
-      'currentLanguage'
-    ])
+    })
   },
   created () {
     if (localStorage.getItem('isDarkTheme')) {

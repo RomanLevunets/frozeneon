@@ -13,7 +13,8 @@ export default {
   data () {
     return {
       page: 0,
-      showDialogView: false
+      showDialogView: false,
+      windowWith: 0
     }
   },
   components: {
@@ -35,6 +36,9 @@ export default {
   },
   created () {
     this.setCurrentItem(null)
+  },
+  mounted () {
+    this.windowWith = window.innerWidth
   },
   computed: {
     ...mapGetters({

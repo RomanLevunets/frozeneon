@@ -50,10 +50,9 @@ const actions = {
     }
   },
   [GET_ITEM]: async ({ commit }, payload) => {
-    const encodedName = encodeURIComponent(payload.packageName)
     commit(CHANGE_LOADING, true)
     try {
-      const response = await $http.get(`package/${encodedName}`)
+      const response = await $http.get(`package/${encodeURIComponent(payload.packageName)}`)
       commit(SET_ITEM, response.data)
       // eslint-disable-next-line no-useless-catch
     } catch (e) {
