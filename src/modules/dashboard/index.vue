@@ -68,12 +68,15 @@
                  @close-dialog="showDialogView = false">
       <template #content>
         <div v-if="currentItem" class="pt-5">
-          <p v-show="!packageMetadata.readme" class="mb-4 text-h6">
+          <p v-if="!packageMetadata.readme && packageMetadata.links.hasOwnProperty('homepage')" class="mb-4 text-h6">
             <span>{{ packageMetadata.description }}</span><br>
             More information
             <a :href="packageMetadata.links.homepage" target="_blank" class="text-h5">
               here
             </a>
+          </p>
+          <p v-else>
+            No information about this package
           </p>
           <vue-markdown
             class="markdown"
