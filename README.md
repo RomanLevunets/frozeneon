@@ -1,4 +1,4 @@
-# test-nethernite
+# frozeneon
 
 ## Project setup
 ```
