@@ -24,6 +24,10 @@ export default {
         key: 'text',
         value: `keywords:${item}`
       })
+      this.changeQueryParams({
+        key: 'from',
+        value: 0
+      })
       this.$vuetify.goTo(0)
       this.fetchList()
       // replace url query
